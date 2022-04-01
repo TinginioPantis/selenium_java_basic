@@ -6,6 +6,8 @@ public class ChangeToFileExtension {
         System.out.println(System.getProperty("os.name") );
         if (System.getProperty("os.name").contains("Mac") || System.getProperty("os.name").contains("mac"))
             return "";
+        else if (System.getProperty("os.name").contains("Linux"))
+            return ".linux";
         else
             return ".exe";
     }
