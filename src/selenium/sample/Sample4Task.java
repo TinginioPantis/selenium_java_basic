@@ -37,23 +37,44 @@ public class Sample4Task {
     @Test
     public void enterNumber() throws Exception {
 //         TODO:
+        String numberToEnter = "77";
 //        enter a number under "Number"
+        WebElement numberField = driver.findElement(By.id("number"));
+        numberField.clear();
+        numberField.sendKeys(numberToEnter);
 //        check that button is not clickable "Clear Result"
+        WebElement clearResultButton = driver.findElement(By.id("clear_result_button_number"));
+        assertFalse(clearResultButton.isEnabled());
 //        check that text is not displayed
+        WebElement resultText = driver.findElement(By.id("result_number"));
+        assertFalse(resultText.isDisplayed());
 //        click on "Result" button
+        WebElement resultButton = driver.findElement(By.id("result_button_number"));
+        resultButton.click();
 //        check that text is displayed
+        assertTrue(resultText.isDisplayed());
 //        check that the correct Text appears ("You entered number: "NUMBER YOU ENTERED"")
+        assertEquals("You entered number: \"" + numberToEnter + "\"", resultText.getText());
 //        check that the button "Clear Result" is clickable now
+        assertTrue(clearResultButton.isEnabled());
 //        click on "Clear Result"
+        clearResultButton.click();
 //        check that the text is still (""), but it is not displayed
+        assertEquals("", resultText.getText());
+        assertFalse(resultText.isDisplayed());
     }
 
     @Test
     public void clickOnLink() throws Exception {
 //         TODO:
+        String homepage = "https://kristinek.github.io/site/";
 //        check current url is base_url
 //        click on "This is a link to Homepage"
 //        check that current url is not base_url
 //        verify that current url is homepage
+        assertEquals(base_url, driver.getCurrentUrl());
+        driver.findElement(By.id("homepage_link")).click();
+        assertNotEquals(base_url, driver.getCurrentUrl());
+        assertEquals(homepage, driver.getCurrentUrl());
     }
 }
