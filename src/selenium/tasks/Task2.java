@@ -16,7 +16,7 @@ public class Task2 {
         String libWithDriversLocation = System.getProperty("user.dir") + File.separator + "lib" + File.separator;
         System.setProperty("webdriver.chrome.driver", libWithDriversLocation + "chromedriver" + new selenium.ChangeToFileExtension().extension());
         driver = new ChromeDriver();
-        driver.get("https://kristinek.github.io/sitetasks/provide_feedback");
+        driver.get("https://kristinek.github.io/site/tasks/provide_feedback");
     }
 
     @After

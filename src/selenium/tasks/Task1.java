@@ -105,5 +105,6 @@ public class Task1 {
         assertEquals("Square root of 88 is 9.38", alert.getText());
         alert.accept();
         assertEquals("", driver.findElement(By.id("ch1_error")).getText());
+
     }
 }
